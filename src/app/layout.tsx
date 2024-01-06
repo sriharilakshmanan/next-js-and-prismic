@@ -4,6 +4,7 @@ import clsx from "clsx";
 import "./globals.css";
 import { createClient } from "@/prismicio";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const nunito = Nunito({
     subsets: ["latin"],
@@ -41,7 +42,7 @@ export default function RootLayout({
             <body>
                 <Header />
                 {children}
-                <footer>Footer!</footer>
+                <Footer />
             </body>
         </html>
     );
