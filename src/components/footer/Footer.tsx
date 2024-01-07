@@ -1,16 +1,18 @@
 import { createClient } from "@/prismicio";
 import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
+import Bounded from "../bounded";
 
-async function Footer() {
+export default async function Footer() {
     const client = createClient();
+
     const settings = await client.getSingle("settings");
+
     return (
-        <footer>
-            <Link href="/">{settings.data.site_title}</Link>
-            <p>{`© ${new Date().getFullYear()} Flowrise`}</p>
-        </footer>
+        <Bounded as="footer">
+            <div className="flex sm:flex-row flex-col justify-center items-center gap-6">
+                <p className="text-xs">© {settings.data.site_title}</p>
+            </div>
+        </Bounded>
     );
 }
-
-export default Footer;
